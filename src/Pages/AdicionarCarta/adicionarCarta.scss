@@ -4,6 +4,10 @@ body {
   background-color: #282c34;
 }
 
+.header{
+  background-color: #282c34;
+}
+
 .container {
   height: 100vh;
   background-color: #282c34;
@@ -13,17 +17,33 @@ body {
 .sendButton{
   height: 30px;
   width: 20%;
-  background:#ade262;
-  color: #282c34;
+  background: #282c34;
+  color: #ade262;
   border-radius: 25px;
+  margin-bottom: 10px;
+}
+
+.campoDaCartaQueTemUmNgcEscrito{
+  text-align: center;
+}
+
+.textQeA{
+  margin-bottom: 120px;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.caixaDeTexto{
+  justify-content: center;
+  margin-bottom: 100px;
 }
 
 .botaoCard{
-  width: 40%;
-  height: 50px;
-  margin: 40px;
+  height: 30px;
+  width: 20%;
+  margin: 10px;
   background: #282c34;
-  color:#ffffff;
+  color: #ade262;
   border-radius: 25px;
 }
 
@@ -67,14 +87,18 @@ body {
   
       &.front {
         transform: rotateY(0);
-        background-color:  #ade262;
+        background-color: #ade262;
         color: #282c34;
+        justify-content: center;
+        align-items: center;
       }
   
       &.back {
         transform: rotateY(180deg);
         background-color: #ade262;
         color: #282c34;
+        justify-content: center;
+        align-items: center;
       }
     }
   }

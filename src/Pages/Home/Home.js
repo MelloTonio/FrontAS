@@ -8,21 +8,24 @@ function Home() {
   
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleClick1 = () => {
       navigate("/Adicionarcarta");
   }
+
+  const handleClick2 = () => {
+    navigate("/Login");
+}
 
     return (
       <div className="App">
         <header className="App-header">
           <button className='botao'>INICIAR</button>
-          <button className='botao'>LOGIN</button>
-          <button className='botao' onClick={handleClick}>ADICIONAR CARTA</button>
+          <button className='botao' onClick={handleClick2}>LOGIN</button>
+          <button className='botao' onClick={handleClick1}>ADICIONAR CARTA</button>
         </header>
       </div>
     );
 }
-
 
 
 export default Home;

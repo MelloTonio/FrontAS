@@ -17,12 +17,17 @@ const UselessTextInput = (props) => {
 
 function FlipCard({ card },button) {
   const [showBack, setShowBack] = useState(false); 
+  const [text, setText] = useState('');
 
   function handleClick() { 
     if (card.variant === "button") { 
       setShowBack(!showBack); 
     } 
   } 
+
+  function handleChange(e) { 
+    setText(e.target.value)
+  }
 
   return (
     <div
@@ -38,28 +43,34 @@ function FlipCard({ card },button) {
           <div className="card-body d-flex justify-content-center align-items-center">
             <p className="card-text">
               <form>
-                <label>Question:
-                  <input type="text" />
+                <label className="campoDaCartaQueTemUmNgcEscrito"><div className="textQeA">QUESTION</div>
+                  <input className="caixaDeTexto" type="text" onChange={(e) => handleChange(e)}/>
                 </label>
               </form>
-            <button className="botaoCard" onClick={handleClick}>Flip</button>
             </p>
           </div>
+          <button className="botaoCard" onClick={handleClick}>Flip</button>
+          <button className="sendButton">Save</button>
         </div>
         <div className="card back">
           <div className="card-body d-flex justify-content-center align-items-center">
             <p className="card-text">{card.back}
-              <label>Answer:
-                <input type="text"/>
+            <form>
+              <label className="campoDaCartaQueTemUmNgcEscrito"><div className="textQeA">ANSWER</div>
+                 <input className="caixaDeTexto" type="text" onChange={(e) => handleChange(e)}/>
               </label>
-              <button className="" onClick={handleClick}>Flip</button>
+              </form>
               </p>
-                <form>
-              </form>botaoCard
           </div>
+          <button className="botaoCard" onClick={handleClick}>Flip</button>
+          <button className="sendButton">Save</button>
         </div>
       </div>
     </div>
+
+    /*
+    < todas as cartas que o usuario já tem >
+    */  
   );
 }
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ReactCardFlip from 'react-card-flip';
-import ReactDOM from "react-dom";
 import cn from "classnames";
 import FlipCard from "./FlipCard";
 import "./adicionarCarta.scss";
@@ -24,7 +23,6 @@ export default function AdicionarCarta() {
                 <FlipCard key={card.id} card={card} />
               ))}
             </div>
-            <button className="sendButton">Save</button>
         </div>
       </div>
     </div>
