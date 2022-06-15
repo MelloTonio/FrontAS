@@ -5,14 +5,18 @@ import cn from "classnames";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { useNavigate } from 'react-router-dom';
+import './Iniciar.scss';
 function Vercartas({ card },button){
 
     const [showBack, setShowBack] = useState(false); 
     const [text, setText] = useState('');
     const [tempCardId, setCardId] = useState('');
     const [dbCards, setdbCards] = useState([]);
+    const [shuffledCard, setShuffledCard] = useState([]);
     const [acerto, setAcerto] = useState(0);
     const [erro, setErro] = useState(0);
+    const [cardObj, setCardObj] = useState([])
+    const [selectedItem, setSelectedItem] = useState(0)
 
     useEffect(() => {
       async function getData() {
@@ -28,7 +32,8 @@ function Vercartas({ card },button){
           console.log(data)
           if (data){
             setdbCards([...data,])
-            console.log(dbCards)
+            
+            console.log(cardObj, "po")
           }
         } catch (e) {
           console.log('DEU RUIM BOY', e);
@@ -45,9 +50,7 @@ function Vercartas({ card },button){
   
     async function sendDeleteCardRequest(cardID) {
       const URL = `http://localhost:3001/cards?`;
-  
-      console.log("inside fn", cardID)
-  
+
       try {
         await fetch(URL + new URLSearchParams({
           cardID: cardID
@@ -68,6 +71,28 @@ function Vercartas({ card },button){
     function handleAcerto(e) {
       setAcerto(acerto+1)
     }
+
+    function shuffle(arra1) {
+      var ctr = arra1.length,
+        temp,
+        index;
+      while (ctr > 0) {
+        index = Math.floor(Math.random() * ctr);
+        ctr--;
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+      }
+      return arra1;
+    }
+
+    function handleShuffle() {
+      const changes = shuffle([...dbCards]);
+      setdbCards(changes);
+      setSelectedItem(0)
+      console.log("Shuffle", dbCards);
+    }
+  
   
     function handleErro(e) {
       setErro(erro+1)
@@ -88,7 +113,7 @@ function Vercartas({ card },button){
         <div className='titulo'>Cartas para jogar</div>
   
         <Carousel >
-        {dbCards.length >= 1 && dbCards.map((dbCard,index) =><div className="flip-card-outer">
+        {dbCards && dbCards.length >= 1 && dbCards.map((dbCard,index) =><div className="flip-card-outer">
         <div
           className={cn("flip-card-inner", {
             showBack, 
@@ -119,10 +144,14 @@ function Vercartas({ card },button){
             
           </div>
         </div>
+     
       </div> )}
         </Carousel>
-        <button className='botaoDosAcertos'>Certo</button>
-        <button className='botaoDosAcertos'>Errado</button>
+        <button onClick={(e) => handleAcerto(e)} className='botaoDosAcertos'>Certo - {acerto}</button>
+        
+        <button onClick={(e) => handleErro(e)} className='botaoDosAcertos'>Errado - {erro}</button>
+    
+        <button onClick={handleShuffle} className='botaoDosAcertos'>Shuffle</button>
     </div>);
   }
   
