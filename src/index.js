@@ -7,6 +7,8 @@ import AdicionarCarta from './Pages/AdicionarCarta/adicionarCarta';
 import Iniciar from './Pages/Iniciar/Iniciar';
 import Login from './Pages/Login/Login';
 import Home from './Pages/Home/Home'; 
+import VerCartas from './Pages/VerCartas/verCartas';
+import TrocarCartas from './Pages/TrocarCartas/TrocarCartas'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,9 +16,11 @@ root.render(
         <BrowserRouter>
           <Routes>
           <Route path="/" exact element={<Home/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/Adicionarcarta" element={<AdicionarCarta/>} />
-          <Route path="/Iniciar" element={<Iniciar/>} />
+          <Route path="/login" exact element={<Login/>} />
+          <Route path="/Adicionarcarta" exact element={<AdicionarCarta/>} />
+          <Route path="/Iniciar" exact element={<Iniciar/>} />
+          <Route path="/Vercartas" exact element={<VerCartas/>} />
+          <Route path="/TrocarCartas" exact element={<TrocarCartas/>} />
           </Routes>
         </BrowserRouter>
   </div>

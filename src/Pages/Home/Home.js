@@ -16,12 +16,17 @@ function Home() {
     navigate("/Login");
 }
 
+const handleClick3 = () => {
+  navigate("/VerCartas");
+}
+
     return (
       <div className="App">
         <header className="App-header">
           <button className='botao'>INICIAR</button>
           <button className='botao' onClick={handleClick2}>LOGIN</button>
           <button className='botao' onClick={handleClick1}>ADICIONAR CARTA</button>
+          <button className='botao' onClick={handleClick3}>VER TODAS AS CARTAS</button>
         </header>
       </div>
     );

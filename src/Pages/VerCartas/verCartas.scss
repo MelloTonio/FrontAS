@@ -11,8 +11,33 @@ body {
 .container {
   height: 100vh;
   background-color: #282c34;
-  max-width: 800px;
+  max-width: 360px;   
+
 }
+
+.deleteButton{
+  margin-left: -200px;
+  height: 30px;
+  width: 30%;
+  background: #282c34;
+  color: #ade262;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.trocarButton{
+  margin-left: 200px;
+  height: 30px;
+  width: 30%;
+  background: #282c34;
+  color: #ade262;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  margin-top: -39px;
+}
+
+
 
 .sendButton{
   height: 30px;
@@ -23,16 +48,7 @@ body {
   margin-bottom: 10px;
 }
 
-.deleteButton{
-  height: 30px;
-  width: 30%;
-  background: #282c34;
-  color: #ade262;
-  border-radius: 25px;
-  margin-bottom: 10px;
-}
-
-.campoDaCartaQueTemUmNgcEscrito{
+.campoDaCartaQueTemUmNgcEscrito{ //vai quebra a porra toda
   text-align: center;
 }
 
@@ -47,6 +63,16 @@ body {
   margin-bottom: 100px;
 }
 
+.titulo{
+  display: flex;
+  margin-left: 35px;
+  color:white;
+  text-align:center;
+  font-size: x-large;
+  font-weight: bold;
+  
+}
+
 .botaoCard{
   height: 30px;
   width: 20%;
@@ -56,6 +82,17 @@ body {
   border-radius: 25px;
 }
 
+.botaoCard2{
+  height: 30px;
+  width: 20%;
+  margin: 10px;
+  background: #282c34;
+  color: #ade262;
+  border-radius: 25px;
+}
+
+
+
 .card-text{
   text-size-adjust: 10px;
   position: sticky;
@@ -64,11 +101,15 @@ body {
 .flip-card-outer {
   width: 300px;
   height: 400px;
-  margin: 25px 0;
+
 
   &.focus-trigger:focus {
     outline: 5px solid rgb(93, 97, 87);
     outline-offset: 5px;
+  }
+
+  .teste{
+    margin-left: 1000px;
   }
 
   .flip-card-inner {
@@ -78,6 +119,7 @@ body {
     width: inherit;
     height: inherit;
 
+    
     &.hover-trigger:hover {
       transform: rotateY(180deg);
     }
@@ -93,6 +135,8 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
+      display: flex;
+      align-content: center;
   
       &.front {
         transform: rotateY(0);
@@ -100,6 +144,7 @@ body {
         color: #282c34;
         justify-content: center;
         align-items: center;
+        margin-top: -10px;
       }
   
       &.back {

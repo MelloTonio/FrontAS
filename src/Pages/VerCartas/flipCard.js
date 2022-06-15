@@ -26,8 +26,6 @@ function FlipCard({ card },button) {
     e.preventDefault();
     const URL = `http://localhost:3001/cards/create`;
 
-    const userID = localStorage.getItem("userID");
-
     try {
       await fetch(URL, {
         method: 'post',
@@ -35,7 +33,7 @@ function FlipCard({ card },button) {
 
         body: await JSON.stringify({
           deck_holder: "b32201f7-99c3-495f-8c58-95d375075d71",
-          owner: userID,
+          owner: "567ce3f4-58e2-4bfd-b088-90f4ac2c056e",
           question: question,
           answer: answer
         }),
@@ -81,6 +79,8 @@ function FlipCard({ card },button) {
             </p>
           </div>
           <button className="botaoCard" onClick={handleClick}>Flip</button>
+          <button className="botaoCard">Deletar</button>
+          <button className="sendButton">Save</button>
         </div>
         <div className="card back">
           <div className="card-body d-flex justify-content-center align-items-center">

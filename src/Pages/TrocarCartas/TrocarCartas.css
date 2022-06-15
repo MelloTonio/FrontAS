@@ -1,0 +1,18 @@
+
+.userID_1{
+    display: flex;
+    width: 1000px;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.formR{
+    margin-top: 70px;
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
