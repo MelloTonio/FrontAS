@@ -38,16 +38,18 @@ function Login(){
         <div className="form">
           <div className="form-body">
               <div className="username">
-                  <label className="form__label" for="username">First Name</label>
+                  <label className="form__label" for="username">First Name: </label>
                   <input className="form__input" type="text" id="username" onChange={(e) => handleUserChange(e)}  placeholder="Username"/>
               </div>
-              <div className="email">
-                  <label className="form__label" for="email">Email</label>
-                  <input  type="email" id="email" className="form__input" placeholder="Email"/>
+              <p></p>
+              <div className="password">
+                  <label className="form__label" for="password">Senha: </label>
+                  <input  type="password" id="password" className="form__input" placeholder="password"/>
               </div>
           </div>
           <div class="footer">
-              <button type="submit" onClick={(e)=> loginUser(e)}  className="registerButton" class="btn">Register</button>
+            <p></p>
+              <button type="submit" onClick={(e)=> loginUser(e)}  className="registerButton">Login</button>
           </div>
       </div>      
     );

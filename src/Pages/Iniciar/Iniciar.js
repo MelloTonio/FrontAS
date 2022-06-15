@@ -9,10 +9,11 @@ function Vercartas({ card },button){
 
     const [showBack, setShowBack] = useState(false); 
     const [text, setText] = useState('');
-    const [tempCardId, setCardId] = useState('')
+    const [tempCardId, setCardId] = useState('');
     const [dbCards, setdbCards] = useState([]);
-  
-  
+    const [acerto, setAcerto] = useState(0);
+    const [erro, setErro] = useState(0);
+
     useEffect(() => {
       async function getData() {
         const URL = `http://localhost:3001/cards?`;
@@ -64,7 +65,14 @@ function Vercartas({ card },button){
       sendDeleteCardRequest(e.target.getAttribute('cardid'))
     } 
   
+    function handleAcerto(e) {
+      setAcerto(acerto+1)
+    }
   
+    function handleErro(e) {
+      setErro(erro+1)
+    }
+
     function handleChange(e) { 
       setText(e.target.value)
     }
@@ -77,7 +85,7 @@ function Vercartas({ card },button){
   
     return(
      <div className="body">
-        <div className='titulo'>Cartas disponiveis</div>
+        <div className='titulo'>Cartas para jogar</div>
   
         <Carousel >
         {dbCards.length >= 1 && dbCards.map((dbCard,index) =><div className="flip-card-outer">
@@ -88,8 +96,6 @@ function Vercartas({ card },button){
           })}
         >
           <div className="card front">
-            <button  className="deleteButton" cardid={dbCard.id} onClick={(e) => deleteCard(e)}>Deletar</button>
-            <button className="trocarButton"  cardid={dbCard.id} onClick={(e) => handleClick1(e)}>Trocar</button>
             <div className="card-body d-flex justify-content-center align-items-center">
               <p className="card-text">
                   <label className="campoDaCartaQueTemUmNgcEscrito"><div className="textQeA">QUESTION</div>
@@ -115,6 +121,8 @@ function Vercartas({ card },button){
         </div>
       </div> )}
         </Carousel>
+        <button className='botaoDosAcertos'>Certo</button>
+        <button className='botaoDosAcertos'>Errado</button>
     </div>);
   }
   

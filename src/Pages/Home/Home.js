@@ -20,10 +20,14 @@ const handleClick3 = () => {
   navigate("/VerCartas");
 }
 
+const handleClick4 = () => {
+  navigate("/Iniciar");
+}
+
     return (
       <div className="App">
         <header className="App-header">
-          <button className='botao'>INICIAR</button>
+          <button className='botao' onClick={handleClick4}>INICIAR</button>
           <button className='botao' onClick={handleClick2}>LOGIN</button>
           <button className='botao' onClick={handleClick1}>ADICIONAR CARTA</button>
           <button className='botao' onClick={handleClick3}>VER TODAS AS CARTAS</button>

@@ -10,9 +10,10 @@
 }
 
 .registerButton{
-    width: 30%;
-    height: 50px;
-    margin: 14px;
-    background: #ade262;
+    height: 40px;
+    width: 110%;
+    background: #282c34;
+    color: #ade262;
     border-radius: 25px;
+    margin-bottom: 10px;
 }
